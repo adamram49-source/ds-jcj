@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>Bomb Game</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #111;
+      color: white;
+    }
+    button, input {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Bomb Game</h1>
+
+  <div id="home">
+    <button id="createBtn">פתח משחק</button><br>
+    <input id="codeInput" placeholder="הכנס קוד משחק">
+    <button id="joinBtn">הצטרף למשחק</button>
+  </div>
+
+  <div id="status"></div>
+
+  <!-- 🔥 Firebase – בדיוק כמו שקיבלת, לא שיניתי כלום -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDbVZzj32b-M4MYHxSfs778kdAoFIHH36Q",
+      authDomain: "players-bomb-game.firebaseapp.com",
+      projectId: "players-bomb-game",
+      storageBucket: "players-bomb-game.firebasestorage.app",
+      messagingSenderId: "333406815581",
+      appId: "1:333406815581:web:999afa655a8752c2de54b4",
+      measurementId: "G-XEX1YF9D2W"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    getAnalytics(app);
+
+    // 👉 חושף את db ו־app ל־script.js
+    window.firebaseApp = app;
+    window.firebaseDB = getDatabase(app);
+  </script>
+
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
